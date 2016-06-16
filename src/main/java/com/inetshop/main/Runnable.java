@@ -10,6 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Runnable {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(JPAConfig.class);
+//        Gurin 123
         System.out.println(context);
 
         /*test*/
