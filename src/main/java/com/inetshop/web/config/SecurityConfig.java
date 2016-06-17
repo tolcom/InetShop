@@ -18,7 +18,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
  */
 @Configuration
 @EnableWebSecurity
-@ComponentScan()
+@ComponentScan("com.inetshop.core.bo")
 public class SecurityConfig extends WebSecurityConfigurerAdapter  {
 
     @Autowired
