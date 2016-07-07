@@ -17,4 +17,12 @@ public class Controllers {
 
         return model;
     }
+
+    @RequestMapping(value = {"/admin"}, method = RequestMethod.GET)
+    public ModelAndView admin() {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("admin");
+
+        return model;
+    }
 }
