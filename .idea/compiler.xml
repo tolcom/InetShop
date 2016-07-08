@@ -25,6 +25,9 @@
         <module name="InetShop" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="InetShop" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

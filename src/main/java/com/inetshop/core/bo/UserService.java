@@ -34,4 +34,12 @@ public class UserService implements UserDetailsService {
 
         return user;
     }
+
+    public void createUser(User user) {
+        userDao.createUser(user);
+    }
+
+    public User findUserByEmail(String email) {
+        return userDao.findUserByEmail(email);
+    }
 }
