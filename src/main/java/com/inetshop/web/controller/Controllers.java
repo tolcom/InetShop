@@ -90,7 +90,6 @@ public class Controllers {
         model.setViewName("register");
         model.addObject("user", new User());
         return model;
-
     }
 
     @RequestMapping(value = {"/register"}, method = RequestMethod.POST)
@@ -107,6 +106,5 @@ public class Controllers {
         userService.createUser(user);
 
         return "redirect:/login";
-
     }
 }
