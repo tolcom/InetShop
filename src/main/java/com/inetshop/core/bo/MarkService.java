@@ -15,12 +15,15 @@ public class MarkService {
     @Autowired
     private MarkDao markDao;
 
-    public List<Mark> getAllMarks(){
+    public List<Mark> getAllMarks() {
         return markDao.getAllMarks();
     }
 
-    public void addMark(Mark mark){
+    public void addMark(Mark mark) {
         markDao.addMark(mark);
     }
 
+    public boolean deleteMark(int id) {
+        return markDao.deleteMark(id);
+    }
 }

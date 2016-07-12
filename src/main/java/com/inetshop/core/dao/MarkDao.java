@@ -11,4 +11,6 @@ public interface MarkDao {
     public List<Mark> getAllMarks();
 
     public void addMark(Mark mark);
+
+    public boolean deleteMark(int id);
 }

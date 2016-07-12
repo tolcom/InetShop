@@ -167,7 +167,7 @@ ul li {
 
 .sub-menu .search-parts-by-code {
     padding: 4px 7px;
-    border-radius: 4px;
+    border-radius: 2px;
     width: 70%;
     height: 25px;
     margin: 10px 5px;
@@ -180,15 +180,16 @@ ul li {
 }
 
 .sub-menu .search-btn {
-    padding: 5px 15px;
-    border-radius: 4px;
-    background: #f0f5f5;
-    box-shadow: 0 0 0 2px #e1e1e1, 0 2px 5px 0 #dcdce4;
+    border: 1px solid #73a2b9;
+    padding: 6px 15px;
+    border-radius: 2px;
+    color: #fff;
+    background: #73a2b9;
 }
 
 .sub-menu .search-btn:hover {
     text-decoration: none;
-    background: -webkit-linear-gradient(top, #dedede, rgba(182, 186, 189, 0.45) 65%, #a2a7ab);
+    background: #88b0c3
 }
 
 .basket {
@@ -257,7 +258,7 @@ ul li {
     width: 100px;
     height: 30px;
     color: #ffffff;
-    background: #33ccff;
+    background: #73a2b9;
     font-size: 18px;
     border: none;
     border-radius: 1px;
@@ -267,7 +268,7 @@ ul li {
 }
 
 .form > input[type="button"]:hover {
-    background: #0099cc;
+    background: #88b0c3;
 }
 
 .form > input[type="button"]:active {
@@ -277,7 +278,6 @@ ul li {
 .catalog {
     position: relative;
     padding-top: 10px;
-
 }
 
 .catalog p {
@@ -285,73 +285,47 @@ ul li {
 }
 
 .catalog .catalog-group {
-    width: 25%;
+    width: 35%;
     position: absolute;
     left: 0px;
 }
 
-.isRoot {
-    margin-left: 0;
+.catalog-group-with-photo{
+    float: right;
+    width: 65%;
 }
 
-.node {
-    margin-left: 18px;
-    zoom: 1;
-    background-image: url(http://javascript.ru/files/upload/tree/img/i.gif);
-    background-position: top left;
-    background-repeat: repeat-y;
+ul.tree{
+    padding: 0 0 10px;
+    margin-top: 5px;
 }
 
-.expand {
-    width: 18px;
-    height: 18px;
-    float: left;
+ul.tree div.nodeexp {
+    background: url("//s.exist.ru/img/toggleup.png") 2px 7px no-repeat;
+    font-weight: bold;
 }
 
-.content {
-    margin-left: 18px;
-    min-height: 18px;
-}
-
-.expandOpen .expand {
-    background-image: url(http://javascript.ru/files/upload/tree/img/expand_minus.gif);
-}
-
-.expandClosed .expand {
-    background-image: url(http://javascript.ru/files/upload/tree/img/expand_plus.gif);
-}
-
-.expandLeaf .expand {
-    background-image: url(http://javascript.ru/files/upload/tree/img/expand_leaf.gif);
-}
-
-.isLast {
-    background-image: url(http://javascript.ru/files/upload/tree/img/i_half.gif);
-    background-repeat: no-repeat;
-}
-
-.expandOpen .container {
-    display: block;
-}
-
-.expandClosed .container {
-    display: none;
-}
-
-.expandOpen .expand, .expandClosed .expand {
+ul.tree div {
+    padding: 2px 0 2px 15px;
     cursor: pointer;
+    background: url("//s.exist.ru/img/toggledown.png") 4px no-repeat;
 }
 
-.expandLeaf .expand {
-    cursor: auto;
+ul.tree li ul {
+    margin-left: 15px;
 }
 
-.catalog .catalog-group-with-photo {
-    border: 1px solid red;
-    width: 70%;
-    position: absolute;
-    right: 0px;
+ul.tree a {
+    display: inline-block;
+    margin: 2px 0 2px 15px;
 }
+
+/*Анимация для меню*/
+
+
+
+
+
 
 
 

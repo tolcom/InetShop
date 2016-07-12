@@ -2,8 +2,8 @@ package com.inetshop.web.controller;
 
 import com.inetshop.core.bo.MarkService;
 import com.inetshop.core.bo.UserService;
-import com.inetshop.core.entities.Roles;
 import com.inetshop.core.entities.User;
+import com.inetshop.core.entities.enums.Roles;
 import com.inetshop.web.validator.CustomRegisterValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
@@ -36,14 +36,6 @@ public class Controllers {
 
     @Autowired
     private CustomRegisterValidator customRegisterValidator;
-
-    @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
-    public ModelAndView welcomePage() {
-        ModelAndView model = new ModelAndView();
-        model.setViewName("main");
-
-        return model;
-    }
 
     @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
     public ModelAndView login(
@@ -90,7 +82,6 @@ public class Controllers {
         model.setViewName("register");
         model.addObject("user", new User());
         return model;
-
     }
 
     @RequestMapping(value = {"/register"}, method = RequestMethod.POST)
@@ -107,6 +98,5 @@ public class Controllers {
         userService.createUser(user);
 
         return "redirect:/login";
-
     }
 }

@@ -2,8 +2,8 @@ package com.inetshop.core.dao.impl;
 
 import com.inetshop.core.dao.MarkDao;
 import com.inetshop.core.entities.Mark;
-import com.inetshop.core.entities.User;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -22,7 +22,7 @@ public class IMarkDao implements MarkDao {
     @Override
     public List<Mark> getAllMarks() {
         try {
-            Query query = em.createQuery("select m from Mark m");
+            Query query = em.createQuery("SELECT m FROM Mark m");
             return (List<Mark>) query.getResultList();
         } catch (Exception ex) {
             return null;
@@ -30,7 +30,20 @@ public class IMarkDao implements MarkDao {
     }
 
     @Override
+    @Transactional
     public void addMark(Mark mark) {
-        em.persist(mark);
+        em.merge(mark);
+    }
+
+    @Override
+    @Transactional
+    public boolean deleteMark(int id) {
+        try {
+            em.remove(em.find(Mark.class, id));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+
     }
 }

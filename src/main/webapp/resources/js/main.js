@@ -1,25 +1,56 @@
-function tree_toggle(event) {
-    event = event || window.event;
-    var clickedElem = event.target || event.srcElement;
+function toggle(container, id) {
+    container.classList.toggle('nodeexp');
+    var menu = document.getElementById(id).style;
 
-    if (!hasClass(clickedElem, 'expand')) {
-        return;// клик не там
+    if (menu.display === 'none') {
+        $("#" + id).show(200);
+    } else {
+        $("#" + id).hide(200);
     }
-
-    // Node, на который кликнули
-    var node = clickedElem.parentNode;
-    if (hasClass(node, 'expandLeaf')) {
-        return; // клик на листе
-    }
-
-    // определить новый класс для узла
-    var newClass = hasClass(node, 'expandOpen') ? 'expandClosed' : 'expandOpen';
-    // заменить текущий класс на newClass
-    // регексп находит отдельно стоящий open|close и меняет на newClass
-    var re =  /(^|\s)(expandOpen|expandClosed)(\s|$)/;
-    node.className = node.className.replace(re, '$1'+newClass+'$3');
 }
 
-function hasClass(elem, className) {
-    return new RegExp("(^|\\s)"+className+"(\\s|$)").test(elem.className);
+function createCatalog(listNodes) {
+    var element = document.getElementById("treeCatalog");
+    var i = 0;
+
+    listNodes.forEach(function (node) {
+        createNode(element, node, i);
+    });
+}
+
+function createNode(element, node, i) {
+    var ul = document.createElement('ul');
+    if (i === 0) {
+        ul.setAttribute("class", "tree");
+    } else {
+        ul.setAttribute('id', node.parent_id);
+        ul.style.display = 'none';
+    }
+
+    i = i + 1;
+
+    var li = document.createElement('li');
+    var child = null;
+
+    if (node.is_span) {
+        child = document.createElement('span');
+        var a = document.createElement('a');
+        a.setAttribute("href", "/catalogs{" + node.id + "}");
+        a.innerHTML = node.title;
+
+        child.appendChild(a);
+    } else {
+        child = document.createElement('div');
+        child.setAttribute('onclick', 'toggle(this, ' + node.id + ')');
+        child.innerHTML = node.title;
+    }
+
+    li.appendChild(child);
+
+    node.listItem.forEach(function (node) {
+        createNode(li, node, i);
+    });
+
+    ul.appendChild(li);
+    element.appendChild(ul);
 }
