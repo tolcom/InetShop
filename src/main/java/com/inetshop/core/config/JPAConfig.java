@@ -6,9 +6,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
@@ -20,6 +22,7 @@ import java.util.Properties;
 @Configuration
 @PropertySource("classpath:database.properties")
 @ComponentScan("com.inetshop.core")
+@EnableTransactionManagement
 public class JPAConfig {
 
     private final String DRIVER_CLASS = "connection.driver_class";
@@ -70,5 +73,12 @@ public class JPAConfig {
         factoryBean.setPackagesToScan("com.inetshop.core");
 
         return factoryBean;
+    }
+
+    @Bean
+    public JpaTransactionManager transactionManager(){
+        JpaTransactionManager manager = new JpaTransactionManager();
+        manager.setEntityManagerFactory(entityManagerFactoryBean().getObject());
+        return manager;
     }
 }

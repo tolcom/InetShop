@@ -105,22 +105,10 @@
     </div>
     <!-- END BODY -->
     <div class="catalog">
-        <div class="catalog-group" onclick="tree_toggle(arguments[0])">
-            <p>Каталог запчастей для </p>
+        <p>Каталог запчастей для ...</p>
 
-            <ul class="container">
-                <li class="node isRoot expandClosed expandOpen">
-                    <div class="expand"></div>
-                    <div class="content">Амортизация</div>
-                    <ul class="container">
-                        <li class="node expandLeaf">
-                            <div class="expand"></div>
-                            <div class="content">Амортизаторы и подвескиffdf</div>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
+        <div class="catalog-group" id="treeCatalog">
+            <script>createCatalog(${catalogList})</script>
         </div>
         <div class="catalog-group-with-photo">
 

@@ -3,6 +3,7 @@ package com.inetshop.core.dao.impl;
 import com.inetshop.core.dao.UserDao;
 import com.inetshop.core.entities.User;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -17,8 +18,9 @@ public class IUserDao implements UserDao {
     private EntityManager em;
 
     @Override
+    @Transactional
     public void createUser(User user) {
-        em.persist(user);
+        em.merge(user);
     }
 
     @Override

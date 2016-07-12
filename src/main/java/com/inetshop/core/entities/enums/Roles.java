@@ -1,4 +1,4 @@
-package com.inetshop.core.entities;
+package com.inetshop.core.entities.enums;
 
 /**
  * Created by SGurin on 12.07.2016.

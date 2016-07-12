@@ -2,8 +2,8 @@ package com.inetshop.core.dao.impl;
 
 import com.inetshop.core.dao.MarkDao;
 import com.inetshop.core.entities.Mark;
-import com.inetshop.core.entities.User;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,7 +30,8 @@ public class IMarkDao implements MarkDao {
     }
 
     @Override
+    @Transactional
     public void addMark(Mark mark) {
-        em.persist(mark);
+        em.merge(mark);
     }
 }
