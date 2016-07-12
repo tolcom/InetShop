@@ -2,8 +2,8 @@ package com.inetshop.web.controller;
 
 import com.inetshop.core.bo.MarkService;
 import com.inetshop.core.bo.UserService;
-import com.inetshop.core.entities.Roles;
 import com.inetshop.core.entities.User;
+import com.inetshop.core.entities.enums.Roles;
 import com.inetshop.web.validator.CustomRegisterValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
@@ -107,6 +107,5 @@ public class Controllers {
         userService.createUser(user);
 
         return "redirect:/login";
-
     }
 }

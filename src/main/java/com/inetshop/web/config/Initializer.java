@@ -23,7 +23,7 @@ public class Initializer implements WebApplicationInitializer {
         context.setServletContext(servletContext);
 
         ServletRegistration.Dynamic dynamic = servletContext.addServlet("dispatcher", new DispatcherServlet(context));
-        dynamic.addMapping("/");
+        dynamic.addMapping("/","/");
         dynamic.setLoadOnStartup(1);
     }
 }
