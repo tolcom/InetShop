@@ -19,7 +19,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 @Configuration
 @EnableWebSecurity
 @ComponentScan("com.inetshop.core.bo")
-public class SecurityConfig extends WebSecurityConfigurerAdapter  {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserService userDetailsService;
@@ -49,8 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
                 .and()
                 .logout().logoutSuccessUrl("/login?logout")
                 .and()
-                .exceptionHandling().accessDeniedPage("/403")
-                .and()
-                .csrf().disable();
+                .csrf();
+
     }
 }

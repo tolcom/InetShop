@@ -21,7 +21,9 @@
         </div>
         <div class="phone">
             <p class="phone-number">+38 (096) 140 89 68</p>
+
             <p class="phone-number">+38 (096) 140 89 68</p>
+
             <p class="timetable">
                 Понедельник - Пятница <span>9.00 - 18.00</span>
                 Суббота <span>9.00 - 15.00</span>
@@ -31,10 +33,10 @@
             <p>Получи больше возможностей с tolcom.ua</p>
             <ul class="buttoms">
                 <li class="login">
-                    <span>Авторизация</span>
+                    <a href="/login"><span>Авторизация</span></a>
                 </li>
                 <li>
-                    <span>Регистрация</span>
+                    <a href="/register"><span>Регистрация</span></a>
                 </li>
             </ul>
         </div>
@@ -100,7 +102,8 @@
                 <input type="button" class="search-btn" value="Поиск"/>
             </div>
         </div>
-    </div><!-- END BODY -->
+    </div>
+    <!-- END BODY -->
     <div class="catalog">
         <div class="catalog-group" onclick="tree_toggle(arguments[0])">
             <p>Каталог запчастей для </p>
