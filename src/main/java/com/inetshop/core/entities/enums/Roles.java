@@ -4,7 +4,7 @@ package com.inetshop.core.entities.enums;
  * Created by SGurin on 12.07.2016.
  */
 public enum Roles {
-    USER, ADMIN;
+    USER, ADMIN, Roles, Roles;
 
     private Roles() {
     }
